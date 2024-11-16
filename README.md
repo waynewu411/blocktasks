@@ -1,2 +1,2 @@
-# blkmonitor
-Blockchain monitor
+# blocktasks
+Tasks running on blockchains

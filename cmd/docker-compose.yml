@@ -1,0 +1,24 @@
+version: '3.8'
+services:
+  postgres:
+    image: postgres:16.2
+    container_name: blocktasks-pgsql
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: blocktasks
+    ports:
+      - "5432:5432"
+    volumes:
+      - blocktasks-data:/var/lib/postgresql/data:rw
+    networks:
+      - blocktasks-network
+    restart: unless-stopped
+networks:
+  blocktasks-network:
+    name: blocktasks-network
+    driver: bridge
+volumes:
+  blocktasks-data:
+    name: blocktasks-data
+    driver: local
